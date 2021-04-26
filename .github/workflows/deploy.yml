@@ -22,7 +22,8 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: Production
+          env: Pre-Prod
+          ref: release-1
 
       # ... Code that deploys the docker image to an environment here...
 
