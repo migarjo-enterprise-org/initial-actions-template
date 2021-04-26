@@ -37,4 +37,4 @@ jobs:
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env_url: https://github.com/orgs/${{github.owner}}/packages?repo_name=${{github.repository}}
-          ref: release-1
+          ref: release-2
