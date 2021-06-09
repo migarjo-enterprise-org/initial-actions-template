@@ -18,7 +18,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'First steps for your new repo',
-              body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please visit the [Customize Repo](https://github.com/migarjo-enterprise-org/test-repo9/actions/workflows/customize-repo action, then click the \"Run Workflow\" button to customize this repository."
+              body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please visit the [Customize Repo](https://github.com/migarjo-enterprise-org/test-repo9/actions/workflows/customize-repo.yml) action, then click the \"Run Workflow\" button to customize this repository."
               })
       - name: Create local changes
         run: |
