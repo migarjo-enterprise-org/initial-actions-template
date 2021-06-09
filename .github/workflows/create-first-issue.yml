@@ -18,7 +18,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'First steps for your new repo',
-              body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please perform the following first steps to get your repository ready to go:\r\n\r\n-[ ] Visit the [Customize Repo](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/actions/workflows/customize-repo.yml) action, then click the \"Run Workflow\" button to customize this repository\r\n- [ ] Edit the [README.md](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/edit/main/README.md) with a description"
+              body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please perform the following first steps to get your repository ready to go:\r\n\r\n- [ ] Visit the [Customize Repo](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/actions/workflows/customize-repo.yml) action, then click the \"Run Workflow\" button to customize this repository\r\n- [ ] Edit the [README.md](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/edit/main/README.md) with a description"
               })
       - name: Delete this action after running
         run: |
