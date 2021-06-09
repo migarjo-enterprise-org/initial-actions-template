@@ -31,7 +31,7 @@ jobs:
       with:
         token: ${{ secrets.GH_ORG_TOKEN }}
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
-
+        path: ${{ github.event.inputs.language }}
     - run: |
         ls
         pwd
