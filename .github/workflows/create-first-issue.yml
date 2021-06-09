@@ -20,3 +20,11 @@ jobs:
               title: 'First steps for your new repo',
               body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please click on the \"Actions\" tab above and select the \"Customize Repo\" option, then run the action."
               })
+      - name: Create local changes
+        run: |
+              ls
+              pwd
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
