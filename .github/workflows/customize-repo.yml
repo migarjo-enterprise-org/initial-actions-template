@@ -21,10 +21,10 @@ jobs:
     
     - name: Checkout this repo
       uses: actions/checkout@v2
+      path: primary
 
     - run: |
-        ls
-        pwd
+        ls ./template
     
     - name: Checkout customization repo
       uses: actions/checkout@v2
@@ -33,11 +33,15 @@ jobs:
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
     - run: |
-        ls
-        pwd
+        ls ./$CUST_REPO
+        cp -r ./$CUST_REPO ./primary
+
+      env:
+        CUST_REPO: ${{ github.event.inputs.language }}
 
     - name: Cleanup Repo Customization Action
       run: |
+            cd ./primary
             rm ./.github/workflows/customize-repo.yml
     - name: Commit & Push changes
       uses: actions-js/push@master
