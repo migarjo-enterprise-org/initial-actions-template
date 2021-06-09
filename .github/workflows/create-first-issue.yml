@@ -22,9 +22,9 @@ jobs:
               })
       - name: Create local changes
         run: |
-              ls
-              pwd
+              rm ./.github/workflows/create-first-issue.yml
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
