@@ -29,7 +29,7 @@ jobs:
     - name: Checkout customization repo
       uses: actions/checkout@v2
       with:
-        repository: ${{ github.repository_owner }} + '/' + ${{ github.event.inputs.language }}
+        repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
 
     - run: |
         ls
