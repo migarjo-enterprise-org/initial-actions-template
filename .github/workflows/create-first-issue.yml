@@ -1,4 +1,4 @@
-name: Creating the first issue
+name: Create the first issue
 
 on:
   push:

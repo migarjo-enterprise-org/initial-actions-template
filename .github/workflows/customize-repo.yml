@@ -1,0 +1,20 @@
+name: Customize Repo
+on: 
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Language (Python or R)'     
+        required: true
+        default: 'Python'
+      category:
+        description: 'Project Type (Type A, Type B, Type C)'
+        required: true
+        default: 'Type A'
+
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Log level: ${{ github.event.inputs.language }}"
+        echo "Tags: ${{ github.event.inputs.category }}" 
