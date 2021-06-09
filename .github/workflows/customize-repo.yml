@@ -12,9 +12,32 @@ on:
         default: 'Type A'
 
 jobs:
-  printInputs:
+  customize-repo:
     runs-on: ubuntu-latest
     steps:
     - run: |
         echo "Log level: ${{ github.event.inputs.language }}"
         echo "Tags: ${{ github.event.inputs.category }}" 
+    
+    - name: Checkout this repo
+    - uses: actions/checkout@v2
+
+    - run: |
+        ls
+        pwd
+    
+    - name: Checkout customization repo
+      repo: ${{ github.repository_owner + '/' + github.event.inputs.language }}
+
+    - run: |
+        ls
+        pwd
+
+    - name: Cleanup Repo Customization Action
+      run: |
+            rm ./.github/workflows/customize-repo.yml
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
