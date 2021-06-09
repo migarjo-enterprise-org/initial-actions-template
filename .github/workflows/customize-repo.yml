@@ -24,9 +24,6 @@ jobs:
       with:
         path: primary
 
-    - run: |
-        ls ./template
-    
     - name: Checkout customization repo
       uses: actions/checkout@v2
       with:
@@ -34,7 +31,7 @@ jobs:
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
     - run: |
-        ls ./$CUST_REPO
+        ls -la ./$CUST_REPO
         cp -r ./$CUST_REPO ./primary
 
       env:
