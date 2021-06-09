@@ -20,13 +20,14 @@ jobs:
         echo "Tags: ${{ github.event.inputs.category }}" 
     
     - name: Checkout this repo
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - run: |
         ls
         pwd
     
     - name: Checkout customization repo
+      uses: actions/checkout@v2
       repo: ${{ github.repository_owner + '/' + github.event.inputs.language }}
 
     - run: |
