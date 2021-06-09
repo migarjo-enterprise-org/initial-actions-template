@@ -29,7 +29,7 @@ jobs:
     - name: Checkout customization repo
       uses: actions/checkout@v2
       with:
-        github_token: ${{ secrets.GH_ORG_TOKEN }}
+        token: ${{ secrets.GH_ORG_TOKEN }}
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
 
     - run: |
