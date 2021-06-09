@@ -1,1 +1,1 @@
-# workflow-example
+# Initial Actions for Templates
