@@ -31,8 +31,8 @@ jobs:
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
     - run: |
-        ls -la ./$CUST_REPO
-        cp -r ./$CUST_REPO ./primary
+        rm -rf ./$CUST_REPO/.git
+        cp -r ./$CUST_REPO/. ./primary
 
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
