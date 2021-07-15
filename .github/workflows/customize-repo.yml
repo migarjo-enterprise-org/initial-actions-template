@@ -36,7 +36,7 @@ jobs:
         cp -r ./$CUST_REPO/. ./primary
         echo "### New Repo" > ./primary/README.md
         echo "This is a ${CATEGORY} repo!" >> ./primary/README.md
-        echo ""
+        echo "" >> ./primary/README.md
         echo "###Description" >> ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
