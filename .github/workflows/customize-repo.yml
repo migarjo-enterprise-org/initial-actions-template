@@ -27,14 +27,14 @@ jobs:
     - name: Checkout customization repo
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GH_ORG_TOKEN }}
+        token: ${{ secrets.GHEC_ADMIN_PAT }}
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
     - name: Make customization changes to repo
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-        echo "### New Repo\nThis is a ${CATEGORY} repo!" > ./primary/README.md
+        echo "### New Repo\r\nThis is a ${CATEGORY} repo!\r\n\r\n###Description\r\n" > ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
