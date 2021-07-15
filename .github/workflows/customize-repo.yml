@@ -30,12 +30,14 @@ jobs:
         token: ${{ secrets.GH_ORG_TOKEN }}
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
-    - run: |
+    - name: Make customization changes to repo
+      run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-
+        echo "### New Repo\nThis is a ${CATEGORY} repo!" > ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
+        CATEGORY: ${{ github.event.inputs.category }}
 
     - name: Cleanup Repo Customization Action
       run: |
