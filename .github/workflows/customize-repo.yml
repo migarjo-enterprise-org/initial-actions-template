@@ -34,7 +34,7 @@ jobs:
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-        mv ./$CATEGORY_README.md README.md
+        mv "./${CATEGORY}_README.md README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
