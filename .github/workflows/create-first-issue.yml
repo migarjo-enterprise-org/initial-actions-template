@@ -41,4 +41,10 @@ jobs:
       - name: Delete this action after running
         run: |
               rm ./.github/workflows/create-first-issue.yml
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          directory: primary
 
