@@ -33,7 +33,7 @@ jobs:
       - name: Protect Main Branch
         uses: actions/github-script@v3   
         with:
-          github-token: ${{ secrets.GHEC_ADMIN_PAT }}
+          github-token: ${{ secrets.GH_ORG_TOKEN }}
           script: |
             await github.repos.updateBranchProtection({
               owner: context.repo.owner,
