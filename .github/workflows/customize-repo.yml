@@ -53,3 +53,19 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
         directory: primary
+    - name: Protect Main Branch
+      uses: actions/github-script@v3   
+      with:
+        github-token: ${{ secrets.GH_ORG_TOKEN }}
+        script: |
+          await github.repos.updateBranchProtection({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            branch: "main",
+            required_status_checks: null,
+            enforce_admins: true,
+            required_pull_request_reviews: {
+              dismiss_state_reviews: true
+            },
+            restrictions: null
+          })
