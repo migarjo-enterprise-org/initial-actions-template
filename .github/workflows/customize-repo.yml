@@ -37,7 +37,8 @@ jobs:
         echo "### New Repo" > ./primary/README.md
         echo "This is a ${CATEGORY} repo!" >> ./primary/README.md
         echo "" >> ./primary/README.md
-        echo "###Description" >> ./primary/README.md
+        echo "#### Description" >> ./primary/README.md
+        echo "<!-- Add a description here -->" >> ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
