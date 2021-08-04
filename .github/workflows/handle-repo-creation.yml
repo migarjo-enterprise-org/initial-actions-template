@@ -1,4 +1,4 @@
-name: Create the first issue
+name: Handle Repository Creation
 
 on:
   push:
