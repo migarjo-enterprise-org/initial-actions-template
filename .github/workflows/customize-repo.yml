@@ -27,7 +27,7 @@ jobs:
     - name: Checkout customization repo
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GHEC_ADMIN_PAT }}
+        token: ${{ secrets.GH_ORG_TOKEN }}
         repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
         path: ${{ github.event.inputs.language }}
     - name: Make customization changes to repo
