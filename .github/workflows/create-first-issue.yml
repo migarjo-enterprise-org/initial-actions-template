@@ -34,7 +34,7 @@ jobs:
               enforce_admins: true,
               required_pull_request_reviews: {
                 dismiss_state_reviews: true
-              }
+              },
               restrictions: null
             })
       - name: Delete this action after running
