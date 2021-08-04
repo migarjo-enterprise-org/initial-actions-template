@@ -24,7 +24,7 @@ jobs:
               })
       - name: Delete this action after running
         run: |
-              rm ./.github/workflows/create-first-issue.yml
+              rm ./.github/workflows/handle-repo-creation.yml
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
