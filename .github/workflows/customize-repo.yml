@@ -34,11 +34,7 @@ jobs:
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-        echo "### New Repo" > ./primary/README.md
-        echo "This is a ${CATEGORY} repo!" >> ./primary/README.md
-        echo "" >> ./primary/README.md
-        echo "#### Description" >> ./primary/README.md
-        echo "<!-- Add a description here -->" >> ./primary/README.md
+        mv ./$CATEGORY_README.md README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
