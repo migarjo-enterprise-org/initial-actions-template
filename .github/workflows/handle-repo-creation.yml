@@ -25,7 +25,7 @@ jobs:
       - name: Delete this action after running # When using "run", you can write shell scripts to directly run commands or scripts within the checked out repository
         run: |
               rm ./.github/workflows/handle-repo-creation.yml
-              mv "./DEFAULT_README.md README.md
+              mv "./.github/template-files/DEFAULT_README.md README.md
       - name: Commit & Push changes
         uses: actions-js/push@master # See https://github.com/actions-js/push for usage details
         with:
