@@ -34,7 +34,7 @@ jobs:
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-        mv "./${CATEGORY}_README.md README.md
+        cp "./primary/.github/template-files/${CATEGORY}-README.md" ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
@@ -51,7 +51,7 @@ jobs:
         directory: primary
     - name: Protect Main Branch
       uses: actions/github-script@v3 # Runs JavaScript scripts with some automatically-loaded libraries to interact with the GitHub api - See https://github.com/actions/github-script
-        with:
+      with:
         github-token: ${{ secrets.GH_ORG_TOKEN }}
         script: |
           await github.repos.updateBranchProtection({

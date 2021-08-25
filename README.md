@@ -16,6 +16,3 @@ Actions can be a powerful automation tool to assist your GitHub workflows. Below
   - [Context and Expression Syntax](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions)
     - This covers the metadata provided to the Actions environment for use in your automation, as well as syntax for how to use them
   - [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
-
-<!-- Add another description here -->
-## Description
