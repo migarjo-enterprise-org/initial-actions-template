@@ -34,7 +34,7 @@ jobs:
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
-        cp "./.github/template-files/${CATEGORY}-README.md" README.md
+        cp "./primary/.github/template-files/${CATEGORY}-README.md" ./primary/README.md
       env:
         CUST_REPO: ${{ github.event.inputs.language }}
         CATEGORY: ${{ github.event.inputs.category }}
