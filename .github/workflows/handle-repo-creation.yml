@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # See https://github.com/actions/checkout for documentation
       - name: Create issue
-        uses: actions/github-script@v3   
+        uses: actions/github-script@v3 # Runs JavaScript scripts with some automatically-loaded libraries to interact with the GitHub api - See https://github.com/actions/github-script
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -22,11 +22,11 @@ jobs:
               title: 'First steps for your new repo',
               body: "### First Steps\r\n\r\nThanks for opening this repository! This is an initial template that can be further customized by running a GitHub Action that specifies your repository type. Please perform the following first steps to get your repository ready to go:\r\n\r\n- [ ] Visit the [Customize Repo](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/actions/workflows/customize-repo.yml) action, then click the \"Run Workflow\" button to customize this repository\r\n- [ ] Edit the [README.md](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/edit/main/README.md) with a description"
               })
-      - name: Delete this action after running
+      - name: Delete this action after running # When using "run", you can write shell scripts to directly run commands or scripts within the checked out repository
         run: |
               rm ./.github/workflows/handle-repo-creation.yml
       - name: Commit & Push changes
-        uses: actions-js/push@master
+        uses: actions-js/push@master # See https://github.com/actions-js/push for usage details
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main

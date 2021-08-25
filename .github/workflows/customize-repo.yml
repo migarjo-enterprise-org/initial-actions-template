@@ -1,7 +1,7 @@
 name: Customize Repo
 on: 
-  workflow_dispatch:
-    inputs:
+  workflow_dispatch: # Workflow dispatch provides the ability to create manually-initiated actions
+    inputs: # Inputs crate a free-text field for user input when using workflow_dispatch
       language:
         description: 'Language (Python or R)'     
         required: true
@@ -15,22 +15,22 @@ jobs:
   customize-repo:
     runs-on: ubuntu-latest
     steps:
-    - run: |
+    - run: | # When using "run", you can write shell scripts to directly run commands or scripts within the checked out repository
         echo "Log level: ${{ github.event.inputs.language }}"
         echo "Tags: ${{ github.event.inputs.category }}" 
     
     - name: Checkout this repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2 # See https://github.com/actions/checkout for documentation
       with:
         path: primary
 
     - name: Checkout customization repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2  See https://github.com/actions/checkout for documentation
       with:
-        token: ${{ secrets.GH_ORG_TOKEN }}
-        repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }}
+        token: ${{ secrets.GH_ORG_TOKEN }} # Token is required when checkout out another repository
+        repository: ${{ github.repository_owner }}/${{ github.event.inputs.language }} # Checks out another repository when github.com path is provided
         path: ${{ github.event.inputs.language }}
-    - name: Make customization changes to repo
+    - name: Make customization changes to repo 
       run: |
         rm -rf ./$CUST_REPO/.git
         cp -r ./$CUST_REPO/. ./primary
@@ -44,14 +44,14 @@ jobs:
             cd ./primary
             rm ./.github/workflows/customize-repo.yml
     - name: Commit & Push changes
-      uses: actions-js/push@master
+      uses: actions-js/push@master # See https://github.com/actions-js/push for usage details
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
         directory: primary
     - name: Protect Main Branch
-      uses: actions/github-script@v3   
-      with:
+      uses: actions/github-script@v3 # Runs JavaScript scripts with some automatically-loaded libraries to interact with the GitHub api - See https://github.com/actions/github-script
+        with:
         github-token: ${{ secrets.GH_ORG_TOKEN }}
         script: |
           await github.repos.updateBranchProtection({
